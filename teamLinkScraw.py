@@ -12,7 +12,7 @@ options.binary = binary
 cap = DesiredCapabilities().FIREFOX
 cap["marionette"] = True #optional
 
-driver = webdriver.Firefox(firefox_options=options, capabilities=cap, executable_path=r'C:\Users\alka\Desktop\SCRAWLER\geckodriver.exe')##path\to\geckodriver.exe
+driver = webdriver.Firefox(firefox_options=options, capabilities=cap, executable_path='geckodriver.exe')##path\to\geckodriver.exe
 driver.get('https://www.transfermarkt.com.tr/wettbewerbe/europa')    
 
 html = driver.page_source
@@ -54,7 +54,7 @@ ex_frame = pd.DataFrame(list(zip(team_names,team_links)),
                   columns = ['team_names', 'team_links'])    
 final_frame = ex_frame[~ex_frame['team_names'].str.split().str[-1].duplicated()] #delete duplicates
 final_frame = final_frame.reset_index(drop=True) #reset index numbers because of deleting duplicates
-final_frame.to_csv(r'C:\Users\alka\Desktop\SCRAWLER\teamlink.csv')
+final_frame.to_csv(teamlink.csv')
 
   
            
